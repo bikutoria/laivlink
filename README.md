@@ -1,3 +1,17 @@
+# NEW
+
+to-do:
+check prompt clarity
+do mobile friendly UI with inputs
+(later) scale delivery
+(later) pick a domain
+
+outstanding questions:
+how many questions per session
+do we want a countdown? 
+
+# OLD
+
 # This iskra comes from a match.
 This web application allows users to generate conversation questions tailored to specific goals and themes for a date night. It features dynamic theme selection based on user-chosen goals, feedback buttons to improve questions, and integrated analytics to track user interactions.
 
