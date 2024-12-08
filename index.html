@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iskra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h1>iskra</h1>
+    <div id="choice-submission">
+        <div class="selectable-group" id="longevity">
+            <p class="goal-header">Get ready for a date night that will bring you two even closer.</p>
+            <p class="goal-header">Your relationship is
+                <label data-value="new">new</label> /
+                <label data-value="long">lasting</label>
+            </p>
+        </div>
+        <div class="selectable-group" id="intimacy">
+            <p class="goal-header">It can be best described as
+                <label data-value="casual">casual</label> /
+                <label data-value="deep">deep</label>
+            </p>
+        </div>
+        <div class="selectable-group" id="goals">
+            <p class="goal-header">The intent of you conversation is to
+                <label data-value="have fun">have fun</label>
+                <label data-value="get to know each other">get to know each other</label>
+                <label data-value="introspect together">introspect together</label>
+                <label data-value="explore future">explore future</label>
+                <label data-value="discuss life goals">discuss life goals</label>
+                <label data-value="deepen the connection">deepen the connection</label>
+                <label data-value="simply chat">simply chat</label>
+            </p>
+
+        </div>
+        <p class="goal-header">The themes you'd like to discuss are...
+        <div class="selectable-group" id="themes"></div>
+        </p>
+        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
+            personalized questions</button>
+    </div>
+
+    <div id="response-section" style="display: none;">
+        <div id="response"></div>
+        <div id="feedback-buttons">
+            <button onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)"
+                title="We like this question.">👍</button>
+            <button
+                onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
+                title="We love this question!">❤️</button>
+            <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
+                title="We do not this question.">👎</button>
+            <button
+                onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
+                title="Let's switch things up...">🔄</button>
+        </div>
+        <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
+        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
+            Submission</button>
+    </div>
+
+    <div id="loading" class="hidden">
+        <img src="loading.gif" alt="Loading...">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <script src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
