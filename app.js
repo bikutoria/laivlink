@@ -58,16 +58,26 @@ function updateThemes() {
 }
 
 function getSelectedValues(group) {
-    return Array.from(document.querySelectorAll(`#${group} .selected`)).map(label => label.getAttribute('data-value')).join(', ');
+    return Array.from(document.querySelectorAll(`#${group} .selected`))
+        .map(label => label.getAttribute('data-value'))
+        .join(', ');
 }
 
 async function getResponse(messageText, temperature, presencePenalty) {
-    const goals = getSelectedValues('goals'), themes = getSelectedValues('themes');
-    const longevity = getSelectedValues('longevity'), intimacy = getSelectedValues('intimacy');
-    if (!goals || !themes || !longevity || !intimacy) return alert("Please select at least one option from each category.");
+    // Only pass themes, longevity, and intimacy
+    const themes = getSelectedValues('themes');
+    const longevity = getSelectedValues('longevity');
+    const intimacy = getSelectedValues('intimacy');
+    
+    // Check if required selections are made
+    /*if (!themes || !longevity || !intimacy) {
+        alert("Please select at least one option from themes, longevity, and intimacy.");
+        return;
+    }*/
 
-    const preambleText = createPreambleText(goals, themes, longevity, intimacy);
+    const preambleText = createPreambleText(); // in the future, Pass only themes, longevity, and intimacy
     showLoading();
+
     try {
         const response = await fetch('https://innovative-ariadne-bikutoria-07e577dd.koyeb.app/chat', {
             method: 'POST',
@@ -133,7 +143,7 @@ function createPreambleText() {
 	•	Know each other well or only briefly.
 	•	Both based in Winnipeg, work remotely, or have mixed locations.
 
-Your task is to generate engaging, creative questions that align with the themes: ${themes}, helping the coworkers build deeper connections and long-term bonds.
+Your task is to generate engaging, creative questions that align with the work themes, helping the coworkers build deeper connections and long-term bonds.
 
 Your response must:
 	1.	Be one question only, phrased directly and conversationally.
@@ -156,19 +166,33 @@ Examples of great questions:
 Your goal is to keep the conversation engaging, light, and focused on building rapport while staying aligned with the themes and corporate event context.`;
 }
 
-function submitChoices(messageText, temperature, presencePenalty) {
-    const goals = getSelectedValues('goals');
+//old
+/*function submitChoices(messageText, temperature, presencePenalty) {
+    // Only check if the themes, longevity, and intimacy selections are made
     const themes = getSelectedValues('themes');
     const longevity = getSelectedValues('longevity');
     const intimacy = getSelectedValues('intimacy');
 
-    if (!goals || !themes || !longevity || !intimacy) {
-        alert("Please select at least one option from each category.");
+    // Check if all required selections (themes, longevity, intimacy) are made
+    if (!themes || !longevity || !intimacy) {
+        alert("Please select at least one option from themes, longevity, and intimacy.");
         return;
     }
 
+    // Continue with the rest of the logic
     getResponse(messageText, temperature, presencePenalty);
-    logEvent("Choice Submission", { goals, themes, longevity, intimacy, conversation_id: conversationId });
+    logEvent("Choice Submission", { themes, longevity, intimacy, conversation_id: conversationId });
+    toggleVisibility('choice-submission', 'response-section');
+}*/
+
+//new
+function submitChoices(messageText, temperature, presencePenalty) {
+    // Skip validation for themes, longevity, and intimacy selection
+    // Continue directly to the response logic
+
+    // Call the getResponse function without checking the selections
+    getResponse(messageText, temperature, presencePenalty);
+    logEvent("Choice Submission", { conversation_id: conversationId });
     toggleVisibility('choice-submission', 'response-section');
 }
 
