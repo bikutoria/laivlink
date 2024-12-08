@@ -3,6 +3,7 @@
 to-do:
 check prompt clarity
 do mobile friendly UI with inputs
+(later) change styling
 (later) scale delivery
 (later) pick a domain
 
