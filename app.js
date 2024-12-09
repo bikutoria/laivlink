@@ -159,13 +159,16 @@ Examples:
 - If you could collaborate on a dream project with anyone at the company, what would it be?
 - What’s one skill you’ve mastered recently that you’re proud of?
 - What’s a surprising insight you've gained from working in your role?
+- What’s the most fun project you’ve worked on recently?
+- What surprised you most about this year’s onsite?
+- Have you picked up any interesting hobbies this year?
 
 Your response must:
 - Be a single question, phrased in an intelligent and conversational style.
-- Be concise (50–150 characters).
+- Be concise (50–140 characters).
 - Focus solely on the provided themes and goals, ensuring relevance and engagement.
 
-Remember, your priority is to offer the most compelling and thoughtful question right from the start to make the conversation meaningful and memorable.`;
+Remember, your priority is to offer the most compelling and thoughtful question right from the start to make the conversation meaningful, memorable, and fun.`;
 }
 
 //old
