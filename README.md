@@ -4,6 +4,7 @@ to-do:
 check prompt clarity
 do mobile friendly UI with inputs
 (later) change styling
+(later) safari an uuid fix?
 (later) scale delivery
 (later) pick a domain
 (later) analytics for choice and questions generated and responses
