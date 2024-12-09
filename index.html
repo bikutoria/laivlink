@@ -16,36 +16,26 @@
 
     <h1>iskra</h1>
     <div id="choice-submission">
-        <div class="selectable-group" id="longevity">
-            <p class="goal-header">Get ready for a date night that will bring you two even closer.</p>
-            <p class="goal-header">Your relationship is
-                <label data-value="new">new</label> /
-                <label data-value="long">lasting</label>
+        <div class="selectable-group" id="team">
+            <p class="goal-header">Do you
+                <label class="selectable" data-value="Work in different teams">Work in different teams</label> /
+                <label class="selectable" data-value="Work in the same team">Work in the same team</label>
             </p>
         </div>
-        <div class="selectable-group" id="intimacy">
-            <p class="goal-header">It can be best described as
-                <label data-value="casual">casual</label> /
-                <label data-value="deep">deep</label>
+        <div class="selectable-group" id="relationship">
+            <p class="goal-header">You
+                <label class="selectable" data-value="Know each other well">Know each other well</label> /
+                <label class="selectable" data-value="Only know each other briefly">Only know each other briefly</label>
             </p>
         </div>
-        <div class="selectable-group" id="goals">
-            <p class="goal-header">The intent of you conversation is to
-                <label data-value="have fun">have fun</label>
-                <label data-value="get to know each other">get to know each other</label>
-                <label data-value="introspect together">introspect together</label>
-                <label data-value="explore future">explore future</label>
-                <label data-value="discuss life goals">discuss life goals</label>
-                <label data-value="deepen the connection">deepen the connection</label>
-                <label data-value="simply chat">simply chat</label>
+        <div class="selectable-group" id="location">
+            <p class="goal-header">You are
+                <label class="selectable" data-value="Both based in Winnipeg">Both based in Winnipeg</label> /
+                <label class="selectable" data-value="Work remotely">Work remotely</label> /
+                <label class="selectable" data-value="Have mixed locations">Have mixed locations</label>
             </p>
-
         </div>
-        <p class="goal-header">The themes you'd like to discuss are...
-        <div class="selectable-group" id="themes"></div>
-        </p>
-        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
-            personalized questions</button>
+        <button onclick="handleChoices()">Get personalized questions</button>
     </div>
 
     <div id="response-section" style="display: none;">
@@ -71,6 +61,7 @@
         <img src="loading.gif" alt="Loading...">
     </div>
 
+    <script src="choices.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <script src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"></script>
     <script src="app.js"></script>
