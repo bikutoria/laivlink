@@ -4,66 +4,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iskra</title>
+    <title>Laivlink</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <video autoplay muted loop id="background-video">
-        <source src="video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="container">
+        <header class="header">
+            <h1>Laivlink</h1>
+        </header>
 
-    <h1>iskra</h1>
-    <div id="choice-submission">
-        <div class="selectable-group" id="team">
-            <p class="goal-header">Do you
-                <label class="selectable" data-value="Work in different teams">Work in different teams</label> /
-                <label class="selectable" data-value="Work in the same team">Work in the same team</label>
-            </p>
-        </div>
-        <div class="selectable-group" id="relationship">
-            <p class="goal-header">You
-                <label class="selectable" data-value="Know each other well">Know each other well</label> /
-                <label class="selectable" data-value="Only know each other briefly">Only know each other briefly</label>
-            </p>
-        </div>
-        <div class="selectable-group" id="location">
-            <p class="goal-header">You are
-                <label class="selectable" data-value="Both based in Winnipeg">Both based in Winnipeg</label> /
-                <label class="selectable" data-value="Work remotely">Work remotely</label> /
-                <label class="selectable" data-value="Have mixed locations">Have mixed locations</label>
-            </p>
-        </div>
-        <button onclick="handleChoices()">Get personalized questions</button>
-    </div>
+        <main>
+            <section class="choice-section">
+                <h2 class="section-title">Make Your Choices</h2>
 
-    <div id="response-section" style="display: none;">
-        <div id="response"></div>
-        <div id="feedback-buttons">
-            <button onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)"
-                title="We like this question.">👍</button>
-            <button
-                onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
-                title="We love this question!">❤️</button>
-            <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
-                title="We do not this question.">👎</button>
-            <button
-                onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
-                title="Let's switch things up...">🔄</button>
-        </div>
-        <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
-        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
-            Submission</button>
-    </div>
+                <!-- Team Choice Group -->
+                <div class="choice-group" id="team">
+                    <p class="choice-question">Do you</p>
+                    <div class="choice-options">
+                        <label class="choice-option">
+                            <input type="radio" name="team" value="Work in different teams" />
+                            Work in different teams
+                        </label>
+                        <label class="choice-option">
+                            <input type="radio" name="team" value="Work in the same team" />
+                            Work in the same team
+                        </label>
+                    </div>
+                </div>
 
-    <div id="loading" class="hidden">
-        <img src="loading.gif" alt="Loading...">
+                <!-- Relationship Choice Group -->
+                <div class="choice-group" id="relationship">
+                    <p class="choice-question">You</p>
+                    <div class="choice-options">
+                        <label class="choice-option">
+                            <input type="radio" name="relationship" value="Know each other well" />
+                            Know each other well
+                        </label>
+                        <label class="choice-option">
+                            <input type="radio" name="relationship" value="Only know each other briefly" />
+                            Only know each other briefly
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Location Choice Group -->
+                <div class="choice-group" id="location">
+                    <p class="choice-question">You are</p>
+                    <div class="choice-options">
+                        <label class="choice-option">
+                            <input type="radio" name="location" value="Both based in Winnipeg" />
+                            Both based in Winnipeg
+                        </label>
+                        <label class="choice-option">
+                            <input type="radio" name="location" value="Work remotely" />
+                            Work remotely
+                        </label>
+                        <label class="choice-option">
+                            <input type="radio" name="location" value="Have mixed locations" />
+                            Have mixed locations
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Interests Choice Group (New) -->
+                <div class="choice-group" id="interests">
+                    <p class="choice-question">Select your interests</p>
+                    <div class="choice-options">
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Travel" />
+                            Travel
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Sports" />
+                            Sports
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Movies" />
+                            Movies
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Music" />
+                            Music
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Food & Cooking" />
+                            Food & Cooking
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="TV" />
+                            TV
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Hobbies" />
+                            Hobbies
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Outdoor Activities" />
+                            Outdoor Activities
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Inspirational Reads" />
+                            Inspirational Reads
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Art & Design" />
+                            Art & Design
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Comics & Graphic Novels" />
+                            Comics & Graphic Novels
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Technology Trends" />
+                            Technology Trends
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Cars & Motorcycles" />
+                            Cars & Motorcycles
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="DIY Projects" />
+                            DIY Projects
+                        </label>
+                        <label class="choice-option">
+                            <input type="checkbox" name="interests" value="Photography" />
+                            Photography
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-submit" onclick="handleChoices()">Get Personalized Questions</button>
+            </section>
+
+            <section class="response-section" id="response-section" style="display: none;">
+                <div id="response"></div>
+                <div id="feedback-buttons">
+                    <button class="btn-feedback" onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)">👍</button>
+                    <button class="btn-feedback" onclick="submitFeedback('I liked this question a lot!', '❤️', 0.4, 0.3)">❤️</button>
+                    <button class="btn-feedback" onclick="submitFeedback('I did not like this question.', '👎', 0.4, 0.9)">👎</button>
+                    <button class="btn-feedback" onclick="submitFeedback('Let’s switch it up.', '🔄', 0.9, 0.9)">🔄</button>
+                </div>
+                <button class="btn-secondary" id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
+                <button class="btn-secondary" id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choices</button>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Laivlink © 2024</p>
+        </footer>
     </div>
 
     <script src="choices.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
-    <script src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"></script>
     <script src="app.js"></script>
 </body>
 
