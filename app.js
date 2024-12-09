@@ -167,6 +167,7 @@ Your response must:
 - Be a single question, phrased in an intelligent and conversational style.
 - Be concise (50–140 characters).
 - Focus solely on the provided themes and goals, ensuring relevance and engagement.
+- Be formatted with no extra quotation marks and wording, only 1 question.
 
 Remember, your priority is to offer the most compelling and thoughtful question right from the start to make the conversation meaningful, memorable, and fun.`;
 }
