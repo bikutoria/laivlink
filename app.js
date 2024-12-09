@@ -65,9 +65,9 @@ function getSelectedValues(group) {
 
 async function getResponse(messageText, temperature, presencePenalty) {
     // Only pass themes, longevity, and intimacy
-    const themes = getSelectedValues('themes');
-    const longevity = getSelectedValues('longevity');
-    const intimacy = getSelectedValues('intimacy');
+    //const themes = getSelectedValues('themes');
+    //const longevity = getSelectedValues('longevity');
+    //const intimacy = getSelectedValues('intimacy');
     
     // Check if required selections are made
     /*if (!themes || !longevity || !intimacy) {

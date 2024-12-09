@@ -9,126 +9,64 @@
 </head>
 
 <body>
-    <!-- Background Video -->
     <video autoplay muted loop id="background-video">
+        <source src="video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <!-- App Header -->
-    <header>
-        <h1>iskra</h1>
-    </header>
-
-    <!-- Choice Submission Section -->
-    <main id="choice-submission">
-        <section class="selectable-group" id="longevity">
-            <p class="goal-header">Your relationship is:</p>
-            <div class="options">
-                <!-- Longevity Options -->
-                <input type="checkbox" id="new" name="longevity" value="new">
-                <label for="new" class="option">new</label>
-        
-                <input type="checkbox" id="long" name="longevity" value="long">
-                <label for="long" class="option">lasting</label>
-            </div>
-        </section>
-        
-        <section class="selectable-group" id="intimacy">
-            <p class="goal-header">It can be best described as:</p>
-            <div class="options">
-                <!-- Intimacy Options -->
-                <input type="checkbox" id="casual" name="intimacy" value="casual">
-                <label for="casual" class="option">casual</label>
-        
-                <input type="checkbox" id="deep" name="intimacy" value="deep">
-                <label for="deep" class="option">deep</label>
-            </div>
-        </section>
-
-        <section class="selectable-group" id="themes">
-            <p class="goal-header">The themes you'd like to discuss are:</p>
-            <div class="options" id="themes-options">
-                <!-- Travel -->
-                <input type="checkbox" id="travel" name="theme" value="travel">
-                <label for="travel" class="option">travel</label>
-        
-                <!-- Sports -->
-                <input type="checkbox" id="sports" name="theme" value="sports">
-                <label for="sports" class="option">sports</label>
-        
-                <!-- Movies -->
-                <input type="checkbox" id="movies" name="theme" value="movies">
-                <label for="movies" class="option">movies</label>
-        
-                <!-- Music -->
-                <input type="checkbox" id="music" name="theme" value="music">
-                <label for="music" class="option">music</label>
-        
-                <!-- Food & Cooking -->
-                <input type="checkbox" id="food" name="theme" value="food & cooking">
-                <label for="food" class="option">food & cooking</label>
-        
-                <!-- TV -->
-                <input type="checkbox" id="tv" name="theme" value="TV">
-                <label for="tv" class="option">TV</label>
-        
-                <!-- Hobbies -->
-                <input type="checkbox" id="hobbies" name="theme" value="hobbies">
-                <label for="hobbies" class="option">hobbies</label>
-        
-                <!-- Outdoor Activities -->
-                <input type="checkbox" id="outdoor" name="theme" value="outdoor activities">
-                <label for="outdoor" class="option">outdoor activities</label>
-        
-                <!-- Inspirational Reads -->
-                <input type="checkbox" id="inspirational" name="theme" value="inspirational reads">
-                <label for="inspirational" class="option">inspirational reads</label>
-        
-                <!-- Art & Design -->
-                <input type="checkbox" id="art" name="theme" value="art & design">
-                <label for="art" class="option">art & design</label>
-        
-                <!-- Comics & Graphic Novels -->
-                <input type="checkbox" id="comics" name="theme" value="comics & graphic novels">
-                <label for="comics" class="option">comics & graphic novels</label>
-        
-                <!-- Technology Trends -->
-                <input type="checkbox" id="technology" name="theme" value="technology trends">
-                <label for="technology" class="option">technology trends</label>
-        
-                <!-- Cars & Motorcycles -->
-                <input type="checkbox" id="cars" name="theme" value="cars & motorcycles">
-                <label for="cars" class="option">cars & motorcycles</label>
-        
-                <!-- DIY Projects -->
-                <input type="checkbox" id="diy" name="theme" value="DIY projects">
-                <label for="diy" class="option">DIY projects</label>
-        
-                <!-- Photography -->
-                <input type="checkbox" id="photography" name="theme" value="photography">
-                <label for="photography" class="option">photography</label>
-            </div>
-        </section>
-
-        <button class="action-button" onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">
-            Get personalized questions
-        </button>
-    </main>
-
-    <!-- Response Section -->
-    <section id="response-section" class="hidden">
-        <div id="response" class="response-box"></div>
-        <div id="feedback-buttons" class="feedback-group">
-            <button class="feedback-button" onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)" title="We like this question.">👍</button>
-            <button class="feedback-button" onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)" title="We love this question!">❤️</button>
-            <button class="feedback-button" onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)" title="We do not like this question.">👎</button>
-            <button class="feedback-button" onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)" title="Let's switch things up.">🔄</button>
+    <h1>iskra</h1>
+    <div id="choice-submission">
+        <div class="selectable-group" id="longevity">
+            <p class="goal-header">Get ready for a date night that will bring you two even closer.</p>
+            <p class="goal-header">Your relationship is
+                <label data-value="new">new</label> /
+                <label data-value="long">lasting</label>
+            </p>
         </div>
-        <button id="startNewSession" class="action-button hidden" onclick="startNewSession()">Start New Session</button>
-        <button id="returnToChoices" class="action-button hidden" onclick="returnToChoices()">Return to Choice Submission</button>
-    </section>
+        <div class="selectable-group" id="intimacy">
+            <p class="goal-header">It can be best described as
+                <label data-value="casual">casual</label> /
+                <label data-value="deep">deep</label>
+            </p>
+        </div>
+        <div class="selectable-group" id="goals">
+            <p class="goal-header">The intent of you conversation is to
+                <label data-value="have fun">have fun</label>
+                <label data-value="get to know each other">get to know each other</label>
+                <label data-value="introspect together">introspect together</label>
+                <label data-value="explore future">explore future</label>
+                <label data-value="discuss life goals">discuss life goals</label>
+                <label data-value="deepen the connection">deepen the connection</label>
+                <label data-value="simply chat">simply chat</label>
+            </p>
 
-    <!-- Loading Section -->
+        </div>
+        <p class="goal-header">The themes you'd like to discuss are...
+        <div class="selectable-group" id="themes"></div>
+        </p>
+        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
+            personalized questions</button>
+    </div>
+
+    <div id="response-section" style="display: none;">
+        <div id="response"></div>
+        <div id="feedback-buttons">
+            <button onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)"
+                title="We like this question.">👍</button>
+            <button
+                onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
+                title="We love this question!">❤️</button>
+            <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
+                title="We do not this question.">👎</button>
+            <button
+                onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
+                title="Let's switch things up...">🔄</button>
+        </div>
+        <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
+        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
+            Submission</button>
+    </div>
+
     <div id="loading" class="hidden">
         <img src="loading.gif" alt="Loading...">
     </div>
