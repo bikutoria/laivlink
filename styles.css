@@ -47,15 +47,16 @@ h1 {
 }
 
 label:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .selectable-group .selected {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 button {
     background-color: #151146;
+    color: #ffffff;
     height: 64px;
     margin-top: 20px;
     padding: 0px 40px;
