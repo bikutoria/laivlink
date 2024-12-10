@@ -17,31 +17,51 @@
     <h1>Laivlink</h1>
     <div id="choice-submission">
         <div class="selectable-group" id="longevity">
-            <p class="goal-header">Lorem ipsum.</p>
             <p class="goal-header">We
-                <label data-value="new">know each other well</label> /
-                <label data-value="long">know each other briefly</label>
+                <label>
+                    <input type="radio" name="longevity" value="new" hidden>
+                    know each other well
+                </label> /
+                <label>
+                    <input type="radio" name="longevity" value="long" hidden>
+                    know each other briefly
+                </label>
             </p>
         </div>
         <div class="selectable-group" id="intimacy">
             <p class="goal-header">Locale?
-                <label data-value="casual">Both based in Winnipeg</label> /
-                <label data-value="deep">Both work remotely</label> /
-                <label data-value="deep">Have mixed work locations</label>
+                <label>
+                    <input type="radio" name="intimacy" value="casual" hidden>
+                    Both based in Winnipeg
+                </label> /
+                <label>
+                    <input type="radio" name="intimacy" value="deep" hidden>
+                    Both work remotely
+                </label> /
+                <label>
+                    <input type="radio" name="intimacy" value="mixed" hidden>
+                    Have mixed work locations
+                </label>
             </p>
         </div>
         <div class="selectable-group" id="goals">
             <p class="goal-header">We
-                <label data-value="have fun">work on the same team</label>
-                <label data-value="get to know each other">work on different teams</label>
+                <label>
+                    <input type="radio" name="goals" value="have fun" hidden>
+                    work on the same team
+                </label> /
+                <label>
+                    <input type="radio" name="goals" value="get to know each other" hidden>
+                    work on different teams
+                </label>
             </p>
-
         </div>
         <p class="goal-header">The themes you'd like to discuss are...
         <div class="selectable-group" id="themes"></div>
         </p>
-        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
-            personalized questions</button>
+        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">
+            Get personalized questions
+        </button>
     </div>
 
     <div id="response-section" style="display: none;">
@@ -53,14 +73,13 @@
                 onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
                 title="We love this question!">❤️</button>
             <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
-                title="We do not this question.">👎</button>
+                title="We do not like this question.">👎</button>
             <button
                 onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
                 title="Let's switch things up...">🔄</button>
         </div>
         <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
-        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
-            Submission</button>
+        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice Submission</button>
     </div>
 
     <div id="loading" class="hidden">
