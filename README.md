@@ -1,24 +1,19 @@
-# This iskra comes from a match.
-This web application allows users to generate conversation questions tailored to specific goals and themes for a date night. It features dynamic theme selection based on user-chosen goals, feedback buttons to improve questions, and integrated analytics to track user interactions.
+# about
 
-Background video by [StefWithAnF](https://www.pexels.com/video/colored-liquid-mass-thinning-reactions-when-mix-with-other-liquid-3582427/)
+This web application allows users to generate conversation questions tailored to specific goals and themes. It features dynamic theme selection based on user-chosen goals, feedback buttons to improve questions, and integrated analytics to track user interactions.
 
-## iskra to-do
+## to-do
 
-- mobile optimization
-- add sports, history, geography to topics
-- add a dev mode with manual text input for all
-- when choosing a goal, then choosing a theme, keep theme selection when coming back for another goal
-- imrove analytics
-- refactor app.js beast it is crazy out there
-- add login or donations to grow
-- add a goal to "feel grounded in the moment" so that questions like "what is your favourite X?" are phrased as "what is the most recent X you liked? why did it resonate?"
+- scale delivery
+- optimize for mobile and all browsers
+- change variable names
+- analytics
 
 # useful
 
 ## to run locally
 
-`cd iskra`
+`cd laivlink`
 `node server.js`
 
 open index.html in your browser
