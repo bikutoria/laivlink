@@ -12,11 +12,10 @@ function logEvent(event, properties) {
     if (devMode) console.log(`Event: ${event}`, properties);
 }
 
-function handleSelection(group, maxSelections, callback) {
+function handleSelection(group, maxSelections) {
     document.querySelectorAll(`#${group} label`).forEach(label => {
         label.addEventListener('click', () => {
             toggleSelection(label, group, maxSelections);
-            if (callback) callback();
         });
     });
 }
@@ -37,12 +36,19 @@ function getSelectedValues(group) {
 }
 
 async function getResponse(messageText, temperature, presencePenalty) {
-    const goals = getSelectedValues('goals'), themes = getSelectedValues('themes');
-    const longevity = getSelectedValues('longevity'), intimacy = getSelectedValues('intimacy');
-    if (!goals || !themes || !longevity || !intimacy) return alert("Please select at least one option from each category.");
+    const goals = getSelectedValues('goals');
+    const themes = getSelectedValues('themes');
+    const longevity = getSelectedValues('longevity');
+    const intimacy = getSelectedValues('intimacy');
+    
+    if (!goals || !themes || !longevity || !intimacy) {
+        alert("Please select at least one option from each category.");
+        return;
+    }
 
     const preambleText = createPreambleText(goals, themes, longevity, intimacy);
     showLoading();
+    
     try {
         const response = await fetch('https://innovative-ariadne-bikutoria-07e577dd.koyeb.app/chat', {
             method: 'POST',
@@ -84,7 +90,7 @@ function submitChoices(messageText, temperature, presencePenalty) {
     const themes = getSelectedValues('themes');
     const longevity = getSelectedValues('longevity');
     const intimacy = getSelectedValues('intimacy');
-
+    
     if (!goals || !themes || !longevity || !intimacy) {
         alert("Please select at least one option from each category.");
         return;
@@ -132,16 +138,8 @@ function toggleVisibility(hideId, showId) {
     showElement.style.justifyContent = 'center';
 }
 
-// Initialize the app
+// Initialize selection handling
 handleSelection('goals', MAX_GOALS);
 handleSelection('themes', MAX_THEMES);
 handleSelection('longevity', 1);
 handleSelection('intimacy', 1);
-
-// Enable dev mode via console
-window.enableDevMode = function () {
-    devMode = true;
-    document.getElementById('startNewSession').style.display = 'block';
-    document.getElementById('returnToChoices').style.display = 'block';
-    console.log("Dev mode enabled");
-};
