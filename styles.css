@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 :root {
-    --primary-color: #151146;
+    --primary-color: #5b2eac;
     --secondary-color: #1974E1;
     --background-color: #ffffff;
 }
 
+
+
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: "DM Sans", sans-serif;
     color: var(--primary-color);
     background-color: var(--background-color);
     margin: 0;
@@ -22,7 +24,7 @@ body {
 }
 
 h1 {
-    font-family: "Playwrite GB J", cursive;
+    font-family: "DM Sans", sans-serif;
     color: var(--secondary-color);
     font-size: 4em;
     margin-top: 0px;
