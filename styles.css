@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+J:ital,wght@0,100..400;1,100..400&display=swap');
 
 :root {
-    --primary-color: #1974E1;
-    --secondary-color: #ffffff;
-    --background-color: #151146;
+    --primary-color: #151146;
+    --secondary-color: #1974E1;
+    --background-color: #ffffff;
 }
 
 body {
     font-family: Helvetica, sans-serif;
-    color: #ffffff;
+    color: #151146;
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
@@ -55,7 +55,7 @@ label:hover {
 }
 
 button {
-    background-color: #ffffff;
+    background-color: #151146;
     height: 64px;
     margin-top: 20px;
     padding: 0px 40px;
@@ -66,7 +66,7 @@ button {
 }
 
 button:hover {
-    background-color: #AC8DD6;
+    background-color: #1974E1;
     color: #ffffff;
 }
 
@@ -90,7 +90,7 @@ button:hover {
 }
 
 #response {
-    color: #ffffff;
+    color: #151146;
     font-size: 2em;
     width: 400px;
     height: 200px;
