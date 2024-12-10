@@ -23,7 +23,7 @@ body {
 
 h1 {
     font-family: "Playwrite GB J", cursive;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     font-size: 4em;
     margin-top: 0px;
     margin-bottom: 20px;
