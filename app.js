@@ -58,26 +58,16 @@ function updateThemes() {
 }
 
 function getSelectedValues(group) {
-    return Array.from(document.querySelectorAll(`#${group} .selected`))
-        .map(label => label.getAttribute('data-value'))
-        .join(', ');
+    return Array.from(document.querySelectorAll(`#${group} .selected`)).map(label => label.getAttribute('data-value')).join(', ');
 }
 
 async function getResponse(messageText, temperature, presencePenalty) {
-    // Only pass themes, longevity, and intimacy
-    //const themes = getSelectedValues('themes');
-    //const longevity = getSelectedValues('longevity');
-    //const intimacy = getSelectedValues('intimacy');
-    
-    // Check if required selections are made
-    /*if (!themes || !longevity || !intimacy) {
-        alert("Please select at least one option from themes, longevity, and intimacy.");
-        return;
-    }*/
+    const goals = getSelectedValues('goals'), themes = getSelectedValues('themes');
+    const longevity = getSelectedValues('longevity'), intimacy = getSelectedValues('intimacy');
+    if (!goals || !themes || !longevity || !intimacy) return alert("Please select at least one option from each category.");
 
-    const preambleText = createPreambleText(); // in the future, Pass only themes, longevity, and intimacy
+    const preambleText = createPreambleText(goals, themes, longevity, intimacy);
     showLoading();
-
     try {
         const response = await fetch('https://innovative-ariadne-bikutoria-07e577dd.koyeb.app/chat', {
             method: 'POST',
@@ -96,109 +86,37 @@ async function getResponse(messageText, temperature, presencePenalty) {
     }
 }
 
-//prod mode
-/*function createPreambleText(team, familiarity, locality, themes) {
-    return `You are a question-generation bot designed to help two coworkers get to know each other, break the ice, connect, and have fun! The conversation takes place at a work holiday event during an onsite week, where local and remote employees gather to socialize and celebrate. 
-    The company that two coworkers work for is at the leading edge of innovation, offering a Generative AI product that empowers call center agents to be productive and giving better customer experience.
-    
-    The coworkers:
-	•	${team}. Work in different teams or the same team.
-	•	${familiarity}. Know each other well or only briefly.
-	•	${locality}. Be based in Winnipeg, work remotely, or have mixed locations.
+function createPreambleText(goals, themes, longevity, intimacy) {
+    return `You are a question generation bot used by a couple currently having a date night. The couple's relationship longevity is ${longevity} and the level of intimacy is ${intimacy}.
+The goals of the evening are to ${goals}. Your job is to come up with questions that you can ask each other to get to know each other deeper and build a long-term bond.
+Here are the themes we are interested in: ${themes}.
 
-    •	Work in different teams or the same team.
-	•	Know each other well or only briefly.
-	•	Both based in Winnipeg, work remotely, or have mixed locations.
-
-Your task is to generate engaging, creative questions that align with the themes: ${themes}, helping the coworkers build deeper connections and long-term bonds.
-
-Your response must:
-	1.	Be one question only, phrased directly and conversationally.
-	2.	Be between 50–150 characters (no more than 150).
-	3.	Improve based on feedback during the conversation.
-	4.	Focus solely on the provided themes and the goal of the event.
-
-Do NOT include:
-	•	Any additional text, explanation, or context.
-	•	Questions related to sex, religion, politics, social justice, salary, marital status, health, or private family matters.
-	•	Repeated or rephrased questions.
-
-Examples of great questions:
-	•	What’s your go-to spot for coffee or drinks near the office?
-	•	What’s the most fun project you’ve worked on recently?
-	•	What surprised you most about this year’s onsite?
-	•	Have you picked up any interesting hobbies this year?
-
-Your goal is to keep the conversation engaging, light, and focused on building rapport while staying aligned with the themes and event context.`;
-}*/
-
-//dev mode
-function createPreambleText() {
-    return `You are a question-generation bot designed to help two coworkers get to know each other, connect, and have meaningful conversations at a work holiday event. Your goal is to craft thought-provoking, creative, and engaging questions that avoid clichés or overly simplistic ideas. Focus on creating a question that sparks genuine curiosity and encourages deeper discussion.
-
-The company that two coworkers work for is at the leading edge of innovation, offering a Generative AI product that empowers call centre agents to be productive and giving better customer experience. The company is headquartered in Winnipeg, but has workers working both in Winnipeg or remotely in Canada.
-
-The coworkers:
-	•	Work in different teams or the same team.
-	•	Know each other well or only briefly.
-	•	Both based in Winnipeg, work remotely, or have mixed locations.
-
-Your task:
-1. Generate the **most interesting and thought-provoking question** based on the themes provided.
-2. The question must be direct, clear, easy to understand and creative, avoiding generic or "cringe" phrasing.
-3. The tone should be intelligent, conversational, and professional, respecting the work context.
-4. The question must align with the themes and goals of the event while being engaging and insightful.
-
-Avoid:
-- Generic icebreakers or overused conversation starters.
-- Questions that seem forced, awkward, or overly casual.
-- Topics related to personal or sensitive matters like health, salary, marital status, or politics.
-
-Examples:
-- What’s the most innovative idea you've heard this year, and why did it resonate with you?
-- If you could collaborate on a dream project with anyone at the company, what would it be?
-- What’s one skill you’ve mastered recently that you’re proud of?
-- What’s a surprising insight you've gained from working in your role?
-- What’s the most fun project you’ve worked on recently?
-- What surprised you most about this year’s onsite?
-- Have you picked up any interesting hobbies this year?
-
-Your response must:
-- Be a single question, phrased in an intelligent and conversational style.
-- Be concise (50–140 characters).
-- Focus solely on the provided themes and goals, ensuring relevance and engagement.
-- Be formatted with no extra quotation marks and wording, only 1 question.
-
-Remember, your priority is to offer the most compelling and thoughtful question right from the start to make the conversation meaningful, memorable, and fun.`;
+Your response should:
+- be between 50 and 150 characters, but no more than 150 characters.
+- contain one question only.
+- not include any additional text, explanation, or context.
+- consider the relationship's longevity and intimacy from the first question and deepend further with more questions.
+- not include " at the start or the end of the question.
+- improve based on the feedback throughout the conversation.
+- never repeat even in a rephrased way.
+- never mention sexual topics.
+- phrased directly, in an engaging way.
+- revolve around the themes of interest and work towards the goal of the evening throughout the conversation.`;
 }
 
-//old
-/*function submitChoices(messageText, temperature, presencePenalty) {
-    // Only check if the themes, longevity, and intimacy selections are made
+function submitChoices(messageText, temperature, presencePenalty) {
+    const goals = getSelectedValues('goals');
     const themes = getSelectedValues('themes');
     const longevity = getSelectedValues('longevity');
     const intimacy = getSelectedValues('intimacy');
 
-    // Check if all required selections (themes, longevity, intimacy) are made
-    if (!themes || !longevity || !intimacy) {
-        alert("Please select at least one option from themes, longevity, and intimacy.");
+    if (!goals || !themes || !longevity || !intimacy) {
+        alert("Please select at least one option from each category.");
         return;
     }
 
-    // Continue with the rest of the logic
     getResponse(messageText, temperature, presencePenalty);
-    logEvent("Choice Submission", { themes, longevity, intimacy, conversation_id: conversationId });
-    toggleVisibility('choice-submission', 'response-section');
-}*/
-
-//new
-function submitChoices(messageText, temperature, presencePenalty) {
-    // Skip validation for themes, longevity, and intimacy selection
-    // Continue directly to the response logic
-
-    // Call the getResponse function without checking the selections
-    getResponse(messageText, temperature, presencePenalty);
-    logEvent("Choice Submission", { conversation_id: conversationId });
+    logEvent("Choice Submission", { goals, themes, longevity, intimacy, conversation_id: conversationId });
     toggleVisibility('choice-submission', 'response-section');
 }
 
