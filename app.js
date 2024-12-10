@@ -7,13 +7,6 @@ logEvent("Welcome Page View", { conversation_id: conversationId });
 
 const MAX_GOALS = 2, MAX_THEMES = 4;
 
-const staticThemes = [
-    'travel', 'sports', 'movies', 'music', 'food & cooking', 'TV', 'hobbies',
-    'outdoor activities', 'inspirational reads', 'art & design',
-    'comics & graphic novels', 'technology trends', 'cars & motorcycles',
-    'DIY projects', 'photography'
-];
-
 function logEvent(event, properties) {
     amplitude.getInstance().logEvent(event, properties);
     if (devMode) console.log(`Event: ${event}`, properties);
@@ -37,22 +30,6 @@ function toggleSelection(label, group, maxSelections) {
     } else {
         alert(`You can select up to ${maxSelections} ${group === 'goals' ? 'goals' : 'themes'}.`);
     }
-}
-
-function updateThemes() {
-    const themesDiv = document.getElementById('themes');
-    themesDiv.innerHTML = ''; // Clear any existing themes
-
-    // Populate the static themes list
-    staticThemes.forEach(theme => {
-        const label = document.createElement('label');
-        label.textContent = theme;
-        label.setAttribute('data-value', theme);
-        themesDiv.appendChild(label);
-    });
-
-    // Enable selection of themes
-    handleSelection('themes', MAX_THEMES);
 }
 
 function getSelectedValues(group) {
@@ -93,7 +70,7 @@ Your response should:
 - be between 50 and 150 characters, but no more than 150 characters.
 - contain one question only.
 - not include any additional text, explanation, or context.
-- consider the relationship's longevity and intimacy from the first question and deepend further with more questions.
+- consider the relationship's longevity and intimacy from the first question and deepen further with more questions.
 - not include " at the start or the end of the question.
 - improve based on the feedback throughout the conversation.
 - never repeat even in a rephrased way.
@@ -155,8 +132,9 @@ function toggleVisibility(hideId, showId) {
     showElement.style.justifyContent = 'center';
 }
 
-// Initialize goal selection handling
-handleSelection('goals', MAX_GOALS, updateThemes);
+// Initialize the app
+handleSelection('goals', MAX_GOALS);
+handleSelection('themes', MAX_THEMES);
 handleSelection('longevity', 1);
 handleSelection('intimacy', 1);
 
