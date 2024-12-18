@@ -79,7 +79,7 @@ The coworkers:
     •   Have shared interests in ${themes}.
 
 Your task:
-1. Generate the **most interesting and thought-provoking question** based on the themes provided.
+1. Generate the **most interesting and thought-provoking question** based on the shared interests provided.
 2. The question must be direct, clear, easy to understand and creative, avoiding generic or "cringe" phrasing.
 3. The tone should be intelligent, conversational, and professional, respecting the work context.
 4. The question must align with the themes and goals of the event while being engaging and insightful.
