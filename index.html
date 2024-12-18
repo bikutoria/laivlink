@@ -14,73 +14,75 @@
         Your browser does not support the video tag.
     </video>
 
-    <h1>Laivlink - let's connect!</h1>
-    <div id="choice-submission">
-        <div class="selectable-group" id="longevity">
-            <p class="goal-header">Make selection to generate questions.</p>
-            <p class="goal-header"></p>
-            <p class="goal-header">We
-                <label data-value="new">know each other well</label> /
-                <label data-value="long">know each other briefly</label>
-            </p>
-        </div>
-        <div class="selectable-group" id="intimacy">
-            <p class="goal-header">Locale?
-                <label data-value="casual">Both based in Winnipeg</label> /
-                <label data-value="deep">Both work remotely</label> /
-                <label data-value="deep">Have mixed work locations</label>
-            </p>
-        </div>
-        <div class="selectable-group" id="goals">
-            <p class="goal-header">We
-                <label data-value="have fun">work on the same team</label>
-                <label data-value="get to know each other">work on different teams</label>
-            </p>
-        </div>
-        <p class="goal-header">The themes you'd like to discuss are...
-            <div class="selectable-group" id="themes">
-                <label data-value="travel">travel</label>
-                <label data-value="sports">sports</label>
-                <label data-value="movies">movies</label>
-                <label data-value="music">music</label>
-                <label data-value="food & cooking">food & cooking</label>
-                <label data-value="TV">TV</label>
-                <label data-value="hobbies">hobbies</label>
-                <label data-value="outdoor activities">outdoor activities</label>
-                <label data-value="inspirational reads">inspirational reads</label>
-                <label data-value="art & design">art & design</label>
-                <label data-value="comics & graphic novels">comics & graphic novels</label>
-                <label data-value="technology trends">technology trends</label>
-                <label data-value="cars & motorcycles">cars & motorcycles</label>
-                <label data-value="DIY projects">DIY projects</label>
-                <label data-value="photography">photography</label>
+    <div id="main-container">
+        <h1>Laivlink - let's connect!</h1>
+        <div id="choice-submission">
+            <div class="selectable-group" id="longevity">
+                <p class="goal-header">Make selection to generate questions.</p>
+                <p class="goal-header"></p>
+                <p class="goal-header">We
+                    <label data-value="new">know each other well</label> /
+                    <label data-value="long">know each other briefly</label>
+                </p>
             </div>
-        </p>
-        <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
-            personalized questions</button>
-    </div>
-
-    <div id="response-section" style="display: none;">
-        <div id="response"></div>
-        <div id="feedback-buttons">
-            <button onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)"
-                title="We like this question.">👍</button>
-            <button
-                onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
-                title="We love this question!">❤️</button>
-            <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
-                title="We do not this question.">👎</button>
-            <button
-                onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
-                title="Let's switch things up...">🔄</button>
+            <div class="selectable-group" id="intimacy">
+                <p class="goal-header">Locale?
+                    <label data-value="casual">Both based in Winnipeg</label> /
+                    <label data-value="deep">Both work remotely</label> /
+                    <label data-value="deep">Have mixed work locations</label>
+                </p>
+            </div>
+            <div class="selectable-group" id="goals">
+                <p class="goal-header">We
+                    <label data-value="have fun">work on the same team</label>
+                    <label data-value="get to know each other">work on different teams</label>
+                </p>
+            </div>
+            <p class="goal-header">The themes you'd like to discuss are...
+                <div class="selectable-group" id="themes">
+                    <label data-value="travel">travel</label>
+                    <label data-value="sports">sports</label>
+                    <label data-value="movies">movies</label>
+                    <label data-value="music">music</label>
+                    <label data-value="food & cooking">food & cooking</label>
+                    <label data-value="TV">TV</label>
+                    <label data-value="hobbies">hobbies</label>
+                    <label data-value="outdoor activities">outdoor activities</label>
+                    <label data-value="inspirational reads">inspirational reads</label>
+                    <label data-value="art & design">art & design</label>
+                    <label data-value="comics & graphic novels">comics & graphic novels</label>
+                    <label data-value="technology trends">technology trends</label>
+                    <label data-value="cars & motorcycles">cars & motorcycles</label>
+                    <label data-value="DIY projects">DIY projects</label>
+                    <label data-value="photography">photography</label>
+                </div>
+            </p>
+            <button onclick="submitChoices('What is the first question we should start the discussion with?', 0.5, 0.4)">Get
+                personalized questions</button>
         </div>
-        <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
-        <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
-            Submission</button>
-    </div>
 
-    <div id="loading" class="hidden">
-        <img src="loading.gif" alt="Loading...">
+        <div id="response-section" style="display: none;">
+            <div id="response"></div>
+            <div id="feedback-buttons">
+                <button onclick="submitFeedback('I liked this question. Next?', '👍', 0.4, 0.3)"
+                    title="We like this question.">👍</button>
+                <button
+                    onclick="submitFeedback('I liked this question a lot! Keep up with this topic and tone. Next?', '❤️', 0.4, 0.3)"
+                    title="We love this question!">❤️</button>
+                <button onclick="submitFeedback('I did not like this question. Next?', '👎', 0.4, 0.9)"
+                    title="We do not this question.">👎</button>
+                <button
+                    onclick="submitFeedback('Let’s switch it up restart the questions. Come up with something random?', '🔄', 0.9, 0.9)"
+                    title="Let's switch things up...">🔄</button>
+            </div>
+            <button id="startNewSession" style="display: none;" onclick="startNewSession()">Start New Session</button>
+            <button id="returnToChoices" style="display: none;" onclick="returnToChoices()">Return to Choice
+                Submission</button>
+        </div>
+
+        <div id="loading" class="hidden">
+            <img src="loading.gif" alt="Loading...">
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
