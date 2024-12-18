@@ -39,13 +39,17 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333333;
     font-family: "DM Sans", sans-serif;
     color: var(--secondary-color);
 }
 
 .selectable-group {
     margin-bottom: 20px;
+}
+
+.selected {
+    background-color: var(--primary-color); /* Use primary color for selected state */
+    color: #ffffff; /* Optional: Change text color for better contrast */
 }
 
 .goal-header {
