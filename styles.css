@@ -152,11 +152,11 @@ button:hover {
 
     #feedback-buttons button {
         padding: 8px;
-        font-size: 18px;
+        font-size: 2em;
     }
 
     #response {
-        font-size: 3em;
+        font-size: 2em;
     }
 }
 
@@ -185,7 +185,7 @@ button:hover {
 
     #feedback-buttons button {
         padding: 6px;
-        font-size: 16px;
+        font-size: 2em;
     }
 
     #response {
