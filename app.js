@@ -79,10 +79,10 @@ The coworkers:
     •   Have shared interests in ${themes}.
 
 Your task:
-1. Generate the **most interesting and thought-provoking question** based on the shared interests provided.
+1. Generate the **most interesting, fun and thought-provoking question** based on the shared interests provided.
 2. The question must be direct, clear, easy to understand and creative, avoiding generic or "cringe" phrasing.
 3. The tone should be intelligent, conversational, and professional, respecting the work context.
-4. The question must align with the themes and goals of the event while being engaging and insightful.
+4. The question must align with the goals of the event while being engaging and insightful.
 
 Avoid:
 - Generic icebreakers or overused conversation starters.
@@ -100,7 +100,7 @@ Examples:
 
 Your response must:
 - Be a single question, phrased in an intelligent and conversational style.
-- Be concise (50–140 characters).
+- Be concise (50–130 characters).
 - Focus solely on the provided themes and goals, ensuring relevance and engagement.
 - Be formatted with no extra quotation marks and wording, only 1 question.
 
