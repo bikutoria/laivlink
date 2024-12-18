@@ -13,6 +13,8 @@ body {
     font-family: Arial, sans-serif;
     overflow-y: auto; /* Allow scrolling */
     background-color: #ffffff; /* Fallback background color */
+    font-family: "DM Sans", sans-serif;
+    color: var(--primary-color);
 }
 
 #background-video {
@@ -38,6 +40,8 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333333;
+    font-family: "DM Sans", sans-serif;
+    color: var(--secondary-color);
 }
 
 .selectable-group {
@@ -110,6 +114,8 @@ button:hover {
 #loading img {
     display: block;
     margin: 0 auto;
+    width: 40%;
+    height: 40%;
 }
 
 /* Responsive Styles */
