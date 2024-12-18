@@ -15,6 +15,7 @@ body {
     background-color: #ffffff; /* Fallback background color */
     font-family: "DM Sans", sans-serif;
     color: var(--primary-color);
+    font-size: 18px;
 }
 
 #background-video {
@@ -71,6 +72,8 @@ label {
 
 label:hover {
     background-color: #e0e0e0;
+    background-color: var(--primary-color); /* Use primary color for selected state */
+    color: #ffffff; /* Optional: Change text color for better contrast */
 }
 
 button {
@@ -109,7 +112,7 @@ button:hover {
 }
 
 #response {
-    font-size: 20px;
+    font-size: 3em;
     color: #333333;
     text-align: center;
     margin-bottom: 20px;
